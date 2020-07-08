@@ -286,8 +286,8 @@ namespace BluetoothServerTest
                     else if (survey == "NZAY9") { surveyInfo = "NZHS" + "AdultY9.pdf\""; }
                     else if (survey == "HLS18") { surveyInfo = "HLS18.pdf\""; }
                     else if (survey == "HLS20") { surveyInfo = "HLS20.pdf\""; }
-                    else if (survey == "NHA10") { surveyInfo = "NZHS" + "ChildY10.pdf\""; }
-                    else if (survey == "NHC10") { surveyInfo = "NZHS" + "AdultY10.pdf\""; }
+                    else if (survey == "NHA10") { surveyInfo = "NZHS" + "AdultY10.pdf\""; }
+                    else if (survey == "NHC10") { surveyInfo = "NZHS" + "ChildY10.pdf\""; }
             else surveyInfo = "Invalid call to pageturner.exe, check pageturner.txt file call.";
 
             //TO DO: Add case statement for HLS..
