@@ -270,24 +270,25 @@ namespace BluetoothServerTest
                     string stringPageNum = pageNum.ToString();
                     string surveyInfo = null; 
                     string survey = subStrings[1].Substring(0,5); //pageturner.txt surv ID parameter.
-                    if (survey == "Adult") { surveyInfo = "NZHS" + "Adult.pdf\""; }
-                    else if (survey == "Child") { surveyInfo = "NZHS" + "Child.pdf\""; }
-                    else if (survey == "CVSY2") { surveyInfo = "NZCVSY2.pdf\""; }
-                    else if (survey == "Y2CVS") { surveyInfo = "NZCVSY2New.pdf\""; }
-                    else if (survey == "Y2CVS") { surveyInfo = "NZCVSY2New.pdf\""; }
-                    else if (survey == "Y3CVS") { surveyInfo = "NZCVSY3.pdf\""; }
-                    else if (survey == "Y2CVS") { surveyInfo = "NZCVSY2New.pdf\""; }
-                    else if (survey == "NZCVS") { surveyInfo = "NZCVS.pdf\""; }
-                    else if (survey == "MHS18") { surveyInfo = "MHWS.pdf\""; }
-                    //IMPORTANT: Update pageturner.txt to fit these parameters.
-                    else if (survey == "NZHSC") { surveyInfo = "NZHS" + "ChildY8.pdf\""; }
-                    else if (survey == "NZHSA") { surveyInfo = "NZHS" + "AdultY8.pdf\""; }
-                    else if (survey == "NZCY9") { surveyInfo = "NZHS" + "ChildY9.pdf\""; }
-                    else if (survey == "NZAY9") { surveyInfo = "NZHS" + "AdultY9.pdf\""; }
-                    else if (survey == "HLS18") { surveyInfo = "HLS18.pdf\""; }
-                    else if (survey == "HLS20") { surveyInfo = "HLS20.pdf\""; }
-                    else if (survey == "NHA10") { surveyInfo = "NZHS" + "AdultY10.pdf\""; }
-                    else if (survey == "NHC10") { surveyInfo = "NZHS" + "ChildY10.pdf\""; }
+            if (survey == "Adult") { surveyInfo = "NZHS" + "Adult.pdf\""; }
+            else if (survey == "Child") { surveyInfo = "NZHS" + "Child.pdf\""; }
+            else if (survey == "CVSY2") { surveyInfo = "NZCVSY2.pdf\""; }
+            else if (survey == "Y2CVS") { surveyInfo = "NZCVSY2New.pdf\""; }
+            else if (survey == "Y2CVS") { surveyInfo = "NZCVSY2New.pdf\""; }
+            else if (survey == "Y3CVS") { surveyInfo = "NZCVSY3.pdf\""; }
+            else if (survey == "Y2CVS") { surveyInfo = "NZCVSY2New.pdf\""; }
+            else if (survey == "NZCVS") { surveyInfo = "NZCVS.pdf\""; }
+            else if (survey == "MHS18") { surveyInfo = "MHWS.pdf\""; }
+            //IMPORTANT: Update pageturner.txt to fit these parameters.
+            else if (survey == "NZHSC") { surveyInfo = "NZHS" + "ChildY8.pdf\""; }
+            else if (survey == "NZHSA") { surveyInfo = "NZHS" + "AdultY8.pdf\""; }
+            else if (survey == "NZCY9") { surveyInfo = "NZHS" + "ChildY9.pdf\""; }
+            else if (survey == "NZAY9") { surveyInfo = "NZHS" + "AdultY9.pdf\""; }
+            else if (survey == "HLS18") { surveyInfo = "HLS18.pdf\""; }
+            else if (survey == "HLS20") { surveyInfo = "HLS20.pdf\""; }
+            else if (survey == "NHA10") { surveyInfo = "NZHS" + "AdultY10.pdf\""; }
+            else if (survey == "NHC10") { surveyInfo = "NZHS" + "ChildY10.pdf\""; }
+            else if (survey == "Y4CVS") { surveyInfo = "NZCVSY4.pdf\""; }
             else surveyInfo = "Invalid call to pageturner.exe, check pageturner.txt file call.";
 
             //TO DO: Add case statement for HLS..
