@@ -107,48 +107,15 @@ namespace BluetoothServerTest
                     }
                 }
             
-
-            //bluListener.Start();
-            //conn = bluListener.AcceptBluetoothClient();
-
-
             updateStatus("Laptop has connected. Do not close this program or LaptopShowcards until survey is complete.");
             receivedTextMessage.Text = "You may now begin the survey.";
             updateReceived(null);
             string User = Environment.UserName;
-            //Looks for new post-file that is updated by user-input.
-            /*bool newPostFile = false;
-            bool changedPostFile = false;
-            FileSystemWatcher postFileWatcher = new FileSystemWatcher();
-            postFileWatcher.Path = "C:\\Users\\" + User + "\\Downloads";//needs to be somewhere accesible on tablet..
-            postFileWatcher.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite
-                        | NotifyFilters.FileName | NotifyFilters.DirectoryName;
-            postFileWatcher.Filter = "*.txt";*/
 
             Stream sentStream = conn.GetStream();
             while (true)
             {
 
-                
-                /*postFileWatcher.EnableRaisingEvents = true;
-                postFileWatcher.Created += delegate { newPostFile = true; string latestPost = @"C:\Users\" + User + @"\Downloads\" + getLatest(@"C:\Users\" + User + @"\Downloads");
-                    transmitText(System.IO.File.ReadAllText(latestPost), sentStream);
-                };
-                postFileWatcher.Changed += delegate { changedPostFile = true; string latestPost = @"C:\Users\" + User + @"\Downloads\" + getLatest(@"C:\Users\" + User + @"\Downloads");
-                   transmitText(System.IO.File.ReadAllText(latestPost), sentStream);
-                };//Only for user-input!
-
-                if (newPostFile == true || changedPostFile == true)
-                {
-                    //html user-input has been completed as the post file has changed. Read first line containing all post
-                    //information and then send this via the bluetooth stream, so that the laptop can read it.
-                    string latestPost = @"C:\Users\" + User + @"\Downloads\" + getLatest(@"C:\Users\" + User + @"\Downloads");
-                    transmitText(System.IO.File.ReadAllText(latestPost), sentStream);//Demo on tablet by manually changing post.txt
-                    //string latest = System.IO.File.ReadAllText(latestPost);
-                    changedPostFile = false;
-                    newPostFile = false;
-                    //CloseChrome();        
-                }*/
 
                 try
                 {
@@ -271,46 +238,13 @@ namespace BluetoothServerTest
                     string surveyInfo = null; 
                     string survey = subStrings[1].Substring(0,5); //pageturner.txt surv ID parameter.
             if (survey == "Adult") { surveyInfo = "NZHS" + "Adult.pdf\""; }
-            else if (survey == "Child") { surveyInfo = "NZHS" + "Child.pdf\""; }
-            else if (survey == "CVSY2") { surveyInfo = "NZCVSY2.pdf\""; }
-            else if (survey == "Y2CVS") { surveyInfo = "NZCVSY2New.pdf\""; }
-            else if (survey == "Y2CVS") { surveyInfo = "NZCVSY2New.pdf\""; }
-            else if (survey == "Y3CVS") { surveyInfo = "NZCVSY3.pdf\""; }
-            else if (survey == "Y2CVS") { surveyInfo = "NZCVSY2New.pdf\""; }
-            else if (survey == "NZCVS") { surveyInfo = "NZCVS.pdf\""; }
-            else if (survey == "MHS18") { surveyInfo = "MHWS.pdf\""; }
-            //IMPORTANT: Update pageturner.txt to fit these parameters.
-            else if (survey == "NZHSC") { surveyInfo = "NZHS" + "ChildY8.pdf\""; }
-            else if (survey == "NZHSA") { surveyInfo = "NZHS" + "AdultY8.pdf\""; }
-            else if (survey == "NZCY9") { surveyInfo = "NZHS" + "ChildY9.pdf\""; }
-            else if (survey == "NZAY9") { surveyInfo = "NZHS" + "AdultY9.pdf\""; }
-            else if (survey == "HLS18") { surveyInfo = "HLS18.pdf\""; }
-            else if (survey == "HLS20") { surveyInfo = "HLS20.pdf\""; }
-            else if (survey == "NHA10") { surveyInfo = "NZHS" + "AdultY10.pdf\""; }
-            else if (survey == "NHC10") { surveyInfo = "NZHS" + "ChildY10.pdf\""; }
-            else if (survey == "Y4CVS") { surveyInfo = "NZCVSY4.pdf\""; }
-            else if (survey == "NHA11") { surveyInfo = "NZHS" + "AdultY11.pdf\""; }
-            else if (survey == "NHC11") { surveyInfo = "NZHS" + "ChildY11.pdf\""; }
-            else if (survey == "Y5CVS") { surveyInfo = "NZCVSY5.pdf\""; }
-            else if (survey == "NHA12") { surveyInfo = "NZHS" + "AdultY12.pdf\""; }
-            else if (survey == "NHC12") { surveyInfo = "NZHS" + "ChildY12.pdf\""; }
-            else if (survey == "Y1NZI") { surveyInfo = "NZISSY1.pdf\""; }
-            else if (survey == "Y6CVS") { surveyInfo = "NZCVSY6.pdf\""; }
             else if (survey == "NHA13") { surveyInfo = "NZHS" + "AdultY13.pdf\""; }
             else if (survey == "NHC13") { surveyInfo = "NZHS" + "ChildY13.pdf\""; }
+            else if (survey == "Y7CVS") { surveyInfo = "NZCVSY7.pdf\""; }
+            else if (survey == "Y7PPM") { surveyInfo = "PPMY7.pdf\""; }
+            else if (survey == "NHA14") { surveyInfo = "NZHS" + "AdultY14.pdf\""; }
+            else if (survey == "NHC14") { surveyInfo = "NZHS" + "ChildY14.pdf\""; }
             else surveyInfo = "Invalid call to pageturner.exe, check pageturner.txt file call.";
-
-            //TO DO: Add case statement for HLS..
-
-            /*if (subStrings[1].Substring(0, 5) == "Child") { surveyInfo = "NZHS" + "Child.pdf\""; } //Where you set pdf to use dependent on survey.
-            else if (subStrings[1].Substring(0, 5) == "Adult") { surveyInfo = "NZHS" + "Adult.pdf\""; }
-            //else if (subStrings[1].Substring(0,3) == "HLS") { surveyInfo = "HLS.pdf\""; }
-            else if (subStrings[1].Substring(0, 5) == "NZCVS") { surveyInfo = "NZCVS.pdf\""; }
-            else if (subStrings[1].Substring(0, 7) == "ChildY8"){ surveyInfo = "NZHS" + "ChildY8.pdf\""; }//Year 8 health surveys.
-            else if (subStrings[1].Substring(0, 7) == "AdultY8"){ surveyInfo = "NZHS" + "AdultY8.pdf\""; }
-            //Note that these details found in pageturner.txt in survey.
-            else surveyInfo = "Invalid call to pageturner.exe, check pageturner.txt file call.";*/
-            //TODO: Add third survey.
 
             //Opens desired showcard PDF page dependent on survey. this is determined by surveyInfo variable.
             Process myProcess = new Process();
@@ -334,10 +268,6 @@ namespace BluetoothServerTest
             //strCmdText = "-kiosk --incognito --disable-session-crashed-bubble \"C:\\Users\\" + User + "\\Desktop\\UserInput" + surveyType + "\\" + userInputFile + "\"";
             strCmdText = "--start-fullscreen --incognito --disable-session-crashed-bubble \"C:\\Users\\" + User + "\\Desktop\\UserInput" + surveyType + "\\" + userInputFile + "\"";
             System.Diagnostics.Process.Start("chrome.exe", strCmdText);
-
-            //Below is just a trial, it will re-write the post data with input file name 5 seconds after chrome is started in kiosk
-            //Thread.Sleep(5000);
-            //System.IO.File.WriteAllText("C:\\Users\\" + User + "\\Desktop\\post\\post.txt", "demo post " + userInputFile);
 
         }
 
@@ -388,14 +318,6 @@ namespace BluetoothServerTest
 
             return false;//default false retunr to keep fozit open (i.e. no action if there is a more significant error).
         }
-
-        /*private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            var processes = Process.GetProcessesByName("TabletShowcards");
-            foreach (var process in processes)
-            process.Kill();
-            CloseChrome();
-        }*/
 
         private string getLatest(string directory)//Gets the name of the latest file created/updated in QuestionLog directory.
         {
