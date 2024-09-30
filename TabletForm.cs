@@ -244,6 +244,7 @@ namespace BluetoothServerTest
             else if (survey == "Y7PPM") { surveyInfo = "PPMY7.pdf\""; }
             else if (survey == "NHA14") { surveyInfo = "NZHS" + "AdultY14.pdf\""; }
             else if (survey == "NHC14") { surveyInfo = "NZHS" + "ChildY14.pdf\""; }
+            else if (survey == "Y8CVS") { surveyInfo = "NZCVSY8.pdf\""; }
             else surveyInfo = "Invalid call to pageturner.exe, check pageturner.txt file call.";
 
             //Opens desired showcard PDF page dependent on survey. this is determined by surveyInfo variable.
