@@ -238,12 +238,10 @@ namespace BluetoothServerTest
                     string surveyInfo = null; 
                     string survey = subStrings[1].Substring(0,5); //pageturner.txt surv ID parameter.
             if (survey == "Adult") { surveyInfo = "NZHS" + "Adult.pdf\""; }
-            else if (survey == "NHA13") { surveyInfo = "NZHS" + "AdultY13.pdf\""; }
-            else if (survey == "NHC13") { surveyInfo = "NZHS" + "ChildY13.pdf\""; }
-            else if (survey == "Y7CVS") { surveyInfo = "NZCVSY7.pdf\""; }
-            else if (survey == "Y7PPM") { surveyInfo = "PPMY7.pdf\""; }
             else if (survey == "NHA14") { surveyInfo = "NZHS" + "AdultY14.pdf\""; }
             else if (survey == "NHC14") { surveyInfo = "NZHS" + "ChildY14.pdf\""; }
+            else if (survey == "NHA15") { surveyInfo = "NZHS" + "AdultY15.pdf\""; }
+            else if (survey == "NHC15") { surveyInfo = "NZHS" + "ChildY15.pdf\""; }
             else if (survey == "Y8CVS") { surveyInfo = "NZCVSY8.pdf\""; }
             else surveyInfo = "Invalid call to pageturner.exe, check pageturner.txt file call.";
 
